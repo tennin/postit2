@@ -29,6 +29,7 @@ before_action :require_same_user, only:[:edit, :update]
 
   def update
 
+
     if @user.update(user_params)
       flash[:notice] = "Profile updated"
       redirect_to user_path(@user)
@@ -45,6 +46,6 @@ before_action :require_same_user, only:[:edit, :update]
   end
 
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :password, :time_zone)
   end
 end
